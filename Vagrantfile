@@ -8,19 +8,19 @@ Vagrant.configure(2) do |config|
     v.customize ["modifyvm", :id, "--cpus", "2"]
   end
 
-  config.vm.provision "docker" do |docker|
-    docker.pull_images "stippeng/tokumx_trafi"
-    #docker.pull_images "stippeng/rstudio_trafi"
-    docker.build_image "/vagrant/",
-      args: "-t rstudio"
-    
-    docker.run "trafi_db",
-      image: "stippeng/tokumx_trafi",
-      args: "-d"
-    docker.run "rstudio", 
-      image: "rstudio",
-      args: "-p 8787:8787 -d -v /vagrant:/home/rstudio/data --link trafi_db:trafi_db"
-  end
+  # config.vm.provision "docker" do |docker|
+  #   docker.pull_images "stippeng/tokumx_trafi"
+  #   #docker.pull_images "stippeng/rstudio_trafi"
+  #   docker.build_image "/vagrant/",
+  #     args: "-t rstudio"
+  #  
+  #   docker.run "trafi_db",
+  #     image: "stippeng/tokumx_trafi",
+  #     args: "-d"
+  #   docker.run "rstudio", 
+  #     image: "rstudio",
+  #     args: "-p 8787:8787 -d -v /vagrant:/home/rstudio/data --link trafi_db:trafi_db"
+  # end
 
   # Workaround to /vagrant being mounted after docker starts 
   config.vm.provision "shell",
