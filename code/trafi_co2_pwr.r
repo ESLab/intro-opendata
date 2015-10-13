@@ -69,7 +69,7 @@ if (mongo.is.connected(mongo)) {
     # Get some statistics on population, income, etc. from Tilastokeskus's open database:
     stats = get_stats_by_area()
     # merge the statistics with Trafi data
-    trafi.sp = merge(trafi.sp, stats, by="pnro_short", all=FALSE)
+    trafi.sp = merge(trafi.sp, stats, by.x="pnro_short", by.y="area", all=FALSE)
 
     # Registration date in the database is a number of the form YYYYMMDD (Y=Year, M=Month, D=Day), so
     # we simply approximate the year of registration by dividing this number by 10000 :-)
