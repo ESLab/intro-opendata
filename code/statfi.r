@@ -3,7 +3,7 @@ get_stats_by_area <- function() {
 # using the pxweb package
 library(pxweb)
 
-mydata <- get_pxweb_data(url = "http://pxwebapi2.stat.fi/PXWeb/api/v1/fi/Postinumeroalueittainen_avoin_tieto/2015/paavo_9_koko_2015.px",
+mydata <- get_pxweb_data(url = "http://pxnet2.stat.fi/PXWeb/api/v1/fi/Postinumeroalueittainen_avoin_tieto/2015/paavo_9_koko_2015.px",
              dims = list(Postinumeroalue = c('*'),
                          Tiedot = c('Hr_ktu', 'He_vakiy')),
              clean = FALSE)
